@@ -21,9 +21,9 @@ const features = [
   },
   {
     icon: Database,
-    title: "Proxmox Virtualización",
+    title: "Proxmox & OpenStack",
     description:
-      "Conexión directa con API de Proxmox. Gestiona nodos, backups y restauraciones sin exponer tus clústeres, funciona local o en cloud.",
+      "Virtualización cloud nativa con Proxmox VE y OpenStack. Gestión completa de VMs, contenedores y clusters. Compatible solo con plataformas cloud modernas.",
   },
   {
     icon: Cloud,

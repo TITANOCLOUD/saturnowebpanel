@@ -1,6 +1,6 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { Shield, Layers, Key, Lock, Cloud, Brain, Network, FileCheck } from "lucide-react"
+import { Shield, Layers, Key, Lock, Cloud, Brain, Network, FileCheck, CheckCircle2, XCircle } from "lucide-react"
 
 export default function CaracteristicasTecnicasPage() {
   const technicalFeatures = [
@@ -143,6 +143,33 @@ export default function CaracteristicasTecnicasPage() {
     },
   ]
 
+  const virtualizationCompatibility = {
+    compatible: [
+      {
+        name: "Proxmox VE",
+        description: "Virtualización completa con KVM y contenedores LXC",
+        features: ["API REST completa", "Gestión de clusters", "Backups automatizados", "Alta disponibilidad"],
+      },
+      {
+        name: "OpenStack",
+        description: "Plataforma cloud empresarial de código abierto",
+        features: ["Multi-tenancy", "Escalabilidad horizontal", "Gestión de redes SDN", "Almacenamiento distribuido"],
+      },
+    ],
+    notCompatible: [
+      {
+        name: "VMware Broadcom",
+        reason: "Plataforma propietaria no idónea para cloud moderno",
+        details: "Licenciamiento restrictivo y arquitectura cerrada incompatible con Zero Trust",
+      },
+      {
+        name: "Azure VM sobre Hyper-V",
+        reason: "Hipervisor no optimizado para infraestructura cloud nativa",
+        details: "Limitaciones en automatización y control granular requerido por SATURNO",
+      },
+    ],
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -155,6 +182,67 @@ export default function CaracteristicasTecnicasPage() {
           <p className="text-xl text-muted-foreground text-pretty">
             Tecnología de vanguardia con arquitectura Zero Trust y supervisión por IA dual
           </p>
+        </div>
+
+        <div className="mb-16">
+          <div className="bg-gradient-to-r from-cyan-400/10 to-blue-400/10 border border-cyan-400/20 rounded-lg p-8">
+            <h2 className="text-3xl font-bold mb-6 text-center">
+              Compatibilidad de <span className="text-cyan-400">Virtualización</span>
+            </h2>
+            <p className="text-center text-muted-foreground mb-8 max-w-3xl mx-auto">
+              SATURNO está diseñado para plataformas cloud nativas que permiten control total, automatización y
+              arquitectura Zero Trust
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Compatible Platforms */}
+              <div className="bg-card rounded-lg p-6 border border-green-500/20">
+                <div className="flex items-center gap-3 mb-6">
+                  <CheckCircle2 className="w-8 h-8 text-green-500" />
+                  <h3 className="text-2xl font-bold text-green-500">Plataformas Compatibles</h3>
+                </div>
+                <div className="space-y-6">
+                  {virtualizationCompatibility.compatible.map((platform, idx) => (
+                    <div key={idx} className="bg-green-500/5 rounded-lg p-4 border border-green-500/10">
+                      <h4 className="font-bold text-lg mb-2">{platform.name}</h4>
+                      <p className="text-sm text-muted-foreground mb-3">{platform.description}</p>
+                      <ul className="space-y-1">
+                        {platform.features.map((feature, fidx) => (
+                          <li key={fidx} className="flex items-start gap-2 text-sm">
+                            <span className="text-green-500 mt-0.5">✓</span>
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Not Compatible Platforms */}
+              <div className="bg-card rounded-lg p-6 border border-red-500/20">
+                <div className="flex items-center gap-3 mb-6">
+                  <XCircle className="w-8 h-8 text-red-500" />
+                  <h3 className="text-2xl font-bold text-red-500">No Compatible</h3>
+                </div>
+                <div className="space-y-6">
+                  {virtualizationCompatibility.notCompatible.map((platform, idx) => (
+                    <div key={idx} className="bg-red-500/5 rounded-lg p-4 border border-red-500/10">
+                      <h4 className="font-bold text-lg mb-2">{platform.name}</h4>
+                      <p className="text-sm font-medium text-red-400 mb-2">{platform.reason}</p>
+                      <p className="text-xs text-muted-foreground">{platform.details}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 bg-red-500/5 border-l-4 border-red-500 p-4 rounded">
+                  <p className="text-sm">
+                    <span className="font-semibold text-red-400">Nota:</span> Estas plataformas no son idóneas para
+                    cloud moderno debido a limitaciones en automatización, control granular y arquitectura cerrada.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="space-y-12">
