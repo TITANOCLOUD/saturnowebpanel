@@ -61,12 +61,25 @@ export function Navigation() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/#caracteristicas"
+                          href="/seguridad"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">Seguridad Avanzada</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Protección empresarial con 99.9% de uptime garantizado
+                            Kernel TG con protección de nivel empresarial
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="/caracteristicas-tecnicas"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">Características Técnicas</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Arquitectura Zero Trust y IA dual
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -128,6 +141,43 @@ export function Navigation() {
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                             Servidores dedicados y cloud público
                           </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="/integraciones/cloudflare"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">Cloudflare</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            CDN, WAF y Zero Trust Access
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="/integraciones/azure"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">Microsoft Azure</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Cloud Services y Virtual Network
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="/integraciones/aws"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">Amazon AWS</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">EC2, S3 y Route53</p>
                         </Link>
                       </NavigationMenuLink>
                     </li>
