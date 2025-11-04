@@ -1,0 +1,7 @@
+{
+  "app_type": "node",
+  "startup_file": "server.js",
+  "app_root": "/home/saturnocloud/nodeapp",
+  "environment": "production",
+  "nodejs": "/opt/cpanel/ea-nodejs20/bin/node"
+}

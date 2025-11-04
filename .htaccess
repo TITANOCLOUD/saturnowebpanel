@@ -1,0 +1,13 @@
+PassengerEnabled on
+PassengerAppRoot /home/saturnocloud/nodeapp
+PassengerAppType node
+PassengerStartupFile server.js
+PassengerNodejs /opt/cpanel/ea-nodejs20/bin/node
+PassengerAppEnv production
+PassengerFriendlyErrorPages off
+
+# Redirect all requests to Passenger
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ http://127.0.0.1:3000/$1 [P,L]
