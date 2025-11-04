@@ -44,12 +44,14 @@ export function Navigation() {
             />
           </Link>
 
-          <NavigationMenu className="hidden lg:flex">
+          <NavigationMenu className="hidden lg:flex relative z-50">
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-foreground font-medium">Características</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-foreground font-medium bg-transparent hover:bg-accent">
+                  Características
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4">
+                  <ul className="grid w-[400px] gap-3 p-4 bg-background">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
@@ -107,9 +109,11 @@ export function Navigation() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-foreground font-medium">Integraciones</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-foreground font-medium bg-transparent hover:bg-accent">
+                  Integraciones
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[500px] grid-cols-2 gap-3 p-4">
+                  <ul className="grid w-[500px] grid-cols-2 gap-3 p-4 bg-background">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
@@ -204,11 +208,11 @@ export function Navigation() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-foreground font-medium">
+                <NavigationMenuTrigger className="text-foreground font-medium bg-transparent hover:bg-accent">
                   IA & Automatización
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4">
+                  <ul className="grid w-[400px] gap-3 p-4 bg-background">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link

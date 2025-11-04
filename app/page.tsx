@@ -6,6 +6,7 @@ import { PanelGallery } from "@/components/panel-gallery"
 import { Benefits } from "@/components/benefits"
 import { ComparisonTable } from "@/components/comparison-table"
 import { Pricing } from "@/components/pricing"
+import { ContactForm } from "@/components/contact-form"
 import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
 import { SEOContent } from "@/components/seo-content"
@@ -37,6 +38,7 @@ export default function Home() {
         <section aria-label="Precios">
           <Pricing />
         </section>
+        <ContactForm />
         <section aria-label="Llamado a la acción">
           <CTA />
         </section>
