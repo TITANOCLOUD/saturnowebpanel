@@ -278,6 +278,28 @@ export function Hero() {
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      href="/documentacion"
+                      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                    >
+                      Documentación
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      href="/nosotros"
+                      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                    >
+                      Nosotros
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
 
@@ -286,7 +308,7 @@ export function Hero() {
               className="hidden lg:flex bg-transparent text-foreground border-foreground/20 hover:bg-accent hover:text-accent-foreground"
               asChild
             >
-              <Link href="/#contacto">Acceder al Panel</Link>
+              <Link href="/#contacto">Contacto</Link>
             </Button>
 
             <button
@@ -421,13 +443,30 @@ export function Hero() {
               </div>
 
               <div className="border-t border-border pt-4">
+                <Link
+                  href="/documentacion"
+                  className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Documentación
+                </Link>
+                <Link
+                  href="/nosotros"
+                  className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Nosotros
+                </Link>
+              </div>
+
+              <div className="border-t border-border pt-4">
                 <Button
                   variant="outline"
                   className="w-full bg-transparent text-foreground border-foreground/20 hover:bg-accent hover:text-accent-foreground"
                   asChild
                 >
                   <Link href="/#contacto" onClick={() => setIsMobileMenuOpen(false)}>
-                    Acceder al Panel
+                    Contacto
                   </Link>
                 </Button>
               </div>

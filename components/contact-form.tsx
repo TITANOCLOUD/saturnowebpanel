@@ -7,30 +7,34 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Calendar, Mail, Phone, Building2, CheckCircle2 } from "lucide-react"
+import { Calendar, Mail, Phone, CheckCircle2 } from "lucide-react"
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    company: "",
     interest: "",
-    message: "",
+    acceptPolicy: false,
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    if (!formData.acceptPolicy) {
+      alert("Debes aceptar la política de tratamiento de datos para continuar")
+      return
+    }
+
     setIsLoading(true)
 
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500))
 
-    // Here you would integrate with your email service and calendar API
+    // Here you would integrate with your email service
     console.log("[v0] Form submitted:", formData)
 
     setIsSubmitted(true)
@@ -42,13 +46,13 @@ export function ContactForm() {
     }, 500)
   }
 
-  const handleChange = (field: string, value: string) => {
+  const handleChange = (field: string, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
   if (isSubmitted) {
     return (
-      <section id="contact-form" className="py-24 bg-gradient-to-b from-background to-muted/20">
+      <section id="contacto" className="py-24 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4 max-w-2xl">
           <Card className="border-primary/20 shadow-xl">
             <CardHeader className="text-center pb-8">
@@ -110,9 +114,8 @@ export function ContactForm() {
                     name: "",
                     email: "",
                     phone: "",
-                    company: "",
                     interest: "",
-                    message: "",
+                    acceptPolicy: false,
                   })
                 }}
               >
@@ -126,73 +129,59 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact-form" className="py-24 bg-gradient-to-b from-background to-muted/20">
+    <section id="contacto" className="py-24 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 max-w-2xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 text-balance">
-            Solicita una <span className="text-primary">Demo Personalizada</span>
+            Comienza Ahora con <span className="text-primary">Saturno Cloud</span>
           </h2>
           <p className="text-lg text-muted-foreground text-pretty">
-            Descubre cómo Saturno puede transformar la gestión de tu infraestructura cloud
+            Contáctanos y descubre cómo podemos transformar tu infraestructura
           </p>
         </div>
 
         <Card className="border-primary/20 shadow-xl">
           <CardHeader>
-            <CardTitle>Cuéntanos sobre tu proyecto</CardTitle>
+            <CardTitle>Solicita Información</CardTitle>
             <CardDescription>
-              Completa el formulario y te contactaremos para agendar una demo adaptada a tus necesidades
+              Completa el formulario y nuestro equipo te contactará en las próximas 24 horas
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Nombre Completo *</Label>
-                  <Input
-                    id="name"
-                    placeholder="Juan Pérez"
-                    required
-                    value={formData.name}
-                    onChange={(e) => handleChange("name", e.target.value)}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email Corporativo *</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="juan@empresa.com"
-                    required
-                    value={formData.email}
-                    onChange={(e) => handleChange("email", e.target.value)}
-                  />
-                </div>
+              <div className="space-y-2">
+                <Label htmlFor="name">Nombre de Usuario *</Label>
+                <Input
+                  id="name"
+                  placeholder="Tu nombre"
+                  required
+                  value={formData.name}
+                  onChange={(e) => handleChange("name", e.target.value)}
+                />
               </div>
 
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Teléfono</Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="+57 300 123 4567"
-                    value={formData.phone}
-                    onChange={(e) => handleChange("phone", e.target.value)}
-                  />
-                </div>
+              <div className="space-y-2">
+                <Label htmlFor="email">Correo Electrónico *</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="tu@email.com"
+                  required
+                  value={formData.email}
+                  onChange={(e) => handleChange("email", e.target.value)}
+                />
+              </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="company">Empresa *</Label>
-                  <Input
-                    id="company"
-                    placeholder="Mi Empresa SAS"
-                    required
-                    value={formData.company}
-                    onChange={(e) => handleChange("company", e.target.value)}
-                  />
-                </div>
+              <div className="space-y-2">
+                <Label htmlFor="phone">Teléfono *</Label>
+                <Input
+                  id="phone"
+                  type="tel"
+                  placeholder="+57 300 123 4567"
+                  required
+                  value={formData.phone}
+                  onChange={(e) => handleChange("phone", e.target.value)}
+                />
               </div>
 
               <div className="space-y-2">
@@ -207,38 +196,39 @@ export function ContactForm() {
                     <SelectItem value="openstack">Integración con OpenStack</SelectItem>
                     <SelectItem value="vps-colombia">VPS y Datacenter en Colombia</SelectItem>
                     <SelectItem value="automation">Automatización con IA</SelectItem>
-                    <SelectItem value="migration">Migración desde WHMCS/HostBill</SelectItem>
+                    <SelectItem value="migration">Migración de Infraestructura</SelectItem>
                     <SelectItem value="reseller">Panel Reseller White Label</SelectItem>
                     <SelectItem value="other">Otro</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="message">Cuéntanos más sobre tu proyecto</Label>
-                <Textarea
-                  id="message"
-                  placeholder="Describe tu infraestructura actual, necesidades específicas, número de servidores, etc."
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) => handleChange("message", e.target.value)}
-                />
-              </div>
-
-              <div className="bg-muted/50 rounded-lg p-4 space-y-2">
-                <div className="flex items-center gap-2 text-sm">
-                  <Building2 className="w-4 h-4 text-primary" />
-                  <span className="font-medium">¿Qué incluye la demo?</span>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="acceptPolicy"
+                    checked={formData.acceptPolicy}
+                    onChange={(e) => handleChange("acceptPolicy", e.target.checked)}
+                    className="mt-1 h-4 w-4 rounded border-gray-300"
+                    required
+                  />
+                  <Label htmlFor="acceptPolicy" className="text-sm leading-relaxed cursor-pointer">
+                    Acepto la política de tratamiento de datos personales. Entiendo que mis datos serán utilizados
+                    únicamente para fines de contacto y comunicación relacionada con los servicios de Saturno Cloud. *
+                  </Label>
                 </div>
-                <ul className="text-sm text-muted-foreground space-y-1 ml-6">
-                  <li>• Recorrido personalizado del panel</li>
-                  <li>• Demostración de integraciones con tus proveedores</li>
-                  <li>• Análisis de tu caso de uso específico</li>
-                  <li>• Sesión de preguntas y respuestas</li>
-                </ul>
+
+                <div className="bg-muted/50 rounded-lg p-4">
+                  <p className="text-xs text-muted-foreground">
+                    <strong>Información importante:</strong> Los datos proporcionados en este formulario serán
+                    utilizados exclusivamente para contactarte y brindarte información sobre nuestros servicios. No
+                    compartiremos tu información con terceros sin tu consentimiento expreso.
+                  </p>
+                </div>
               </div>
 
-              <Button type="submit" size="lg" className="w-full" disabled={isLoading}>
+              <Button type="submit" size="lg" className="w-full" disabled={isLoading || !formData.acceptPolicy}>
                 {isLoading ? (
                   <>
                     <span className="animate-spin mr-2">⏳</span>
@@ -247,14 +237,10 @@ export function ContactForm() {
                 ) : (
                   <>
                     <Mail className="w-4 h-4 mr-2" />
-                    Solicitar Demo
+                    Comenzar Ahora
                   </>
                 )}
               </Button>
-
-              <p className="text-xs text-center text-muted-foreground">
-                Al enviar este formulario, aceptas que Saturno Cloud te contacte sobre nuestros servicios
-              </p>
             </form>
           </CardContent>
         </Card>

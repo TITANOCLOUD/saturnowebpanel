@@ -82,20 +82,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      {
-        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20saturno.ico-AJE5tl2uBYi270bdX5VYnYzzUomp0I.x-icon",
-        type: "image/x-icon",
-      },
-      {
-        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20saturno.ico-AJE5tl2uBYi270bdX5VYnYzzUomp0I.x-icon",
-        sizes: "32x32",
-        type: "image/x-icon",
-      },
+      { url: "/local-favicon.ico", sizes: "any" },
+      { url: "/local-favicon-16x16.ico", sizes: "16x16", type: "image/x-icon" },
+      { url: "/local-favicon-32x32.ico", sizes: "32x32", type: "image/x-icon" },
     ],
-    shortcut:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20saturno.ico-AJE5tl2uBYi270bdX5VYnYzzUomp0I.x-icon",
-    apple:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20saturno.ico-AJE5tl2uBYi270bdX5VYnYzzUomp0I.x-icon",
+    shortcut: "/local-favicon.ico",
+    apple: "/local-favicon.ico",
   },
   openGraph: {
     type: "website",
