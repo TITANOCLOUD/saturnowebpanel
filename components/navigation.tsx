@@ -19,9 +19,9 @@ export function Navigation() {
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20blanco%20grande-1QKrMvWEPslr3wpfWBbomQbvvIrKsq.png"
               alt="Saturno"
-              width={400}
-              height={100}
-              className="h-12 w-auto"
+              width={500}
+              height={125}
+              className="h-20 w-auto"
               priority
             />
           </Link>

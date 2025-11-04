@@ -22,9 +22,9 @@ export function Hero() {
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20blanco%20grande-1QKrMvWEPslr3wpfWBbomQbvvIrKsq.png"
             alt="Saturno"
-            width={400}
-            height={100}
-            className="h-16 w-auto"
+            width={600}
+            height={150}
+            className="h-24 w-auto"
             priority
           />
 

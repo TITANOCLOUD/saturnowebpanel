@@ -10,9 +10,9 @@ export function Footer() {
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/light-logoWHI-RaJggVTFVIll3AgZF80X6q4ZjHDhJO.png"
               alt="TitanoCloud"
-              width={160}
-              height={45}
-              className="h-9 w-auto"
+              width={240}
+              height={68}
+              className="h-14 w-auto"
             />
             <p className="text-sm text-muted-foreground leading-relaxed">
               La plataforma definitiva para gestionar OpenStack, Proxmox, Acronis y OVH desde un solo panel de control.
