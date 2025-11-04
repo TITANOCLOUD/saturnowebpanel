@@ -2,7 +2,7 @@ import { Hero } from "@/components/hero"
 import { Features } from "@/components/features"
 import { Integrations } from "@/components/integrations"
 import { AIFeatures } from "@/components/ai-features"
-import { PanelShowcase } from "@/components/panel-showcase"
+import { PanelGallery } from "@/components/panel-gallery"
 import { Benefits } from "@/components/benefits"
 import { ComparisonTable } from "@/components/comparison-table"
 import { Pricing } from "@/components/pricing"
@@ -26,7 +26,7 @@ export default function Home() {
           <Integrations />
         </section>
         <section aria-label="Panel de control">
-          <PanelShowcase />
+          <PanelGallery />
         </section>
         <section aria-label="Ventajas competitivas">
           <Benefits />
