@@ -51,7 +51,7 @@ export function Hero() {
             <NavigationMenu className="hidden lg:flex">
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Características</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="text-foreground font-medium">Características</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4">
                       <li>
@@ -111,7 +111,7 @@ export function Hero() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Integraciones</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="text-foreground font-medium">Integraciones</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[500px] grid-cols-2 gap-3 p-4">
                       <li>
@@ -208,7 +208,9 @@ export function Hero() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>IA & Automatización</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="text-foreground font-medium">
+                    IA & Automatización
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4">
                       <li>
@@ -258,7 +260,7 @@ export function Hero() {
                   <NavigationMenuLink asChild>
                     <Link
                       href="/#ventajas"
-                      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                     >
                       Ventajas
                     </Link>
@@ -267,7 +269,11 @@ export function Hero() {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <Button variant="outline" className="hidden lg:flex bg-transparent" asChild>
+            <Button
+              variant="outline"
+              className="hidden lg:flex bg-transparent text-foreground border-foreground/20 hover:bg-accent hover:text-accent-foreground"
+              asChild
+            >
               <Link href="/#contacto">Acceder al Panel</Link>
             </Button>
 
@@ -403,7 +409,11 @@ export function Hero() {
               </div>
 
               <div className="border-t border-border pt-4">
-                <Button variant="outline" className="w-full bg-transparent" asChild>
+                <Button
+                  variant="outline"
+                  className="w-full bg-transparent text-foreground border-foreground/20 hover:bg-accent hover:text-accent-foreground"
+                  asChild
+                >
                   <Link href="/#contacto" onClick={() => setIsMobileMenuOpen(false)}>
                     Acceder al Panel
                   </Link>
