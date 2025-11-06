@@ -3,6 +3,7 @@ import { Features } from "@/components/features"
 import { Integrations } from "@/components/integrations"
 import { AIFeatures } from "@/components/ai-features"
 import { PanelGallery } from "@/components/panel-gallery"
+import { ScrollingInfoGallery } from "@/components/scrolling-info-gallery"
 import { Benefits } from "@/components/benefits"
 import { ComparisonTable } from "@/components/comparison-table"
 import { Pricing } from "@/components/pricing"
@@ -19,6 +20,9 @@ export default function Home() {
         <Hero />
         <section aria-label="Características principales">
           <Features />
+        </section>
+        <section aria-label="Galería de información">
+          <ScrollingInfoGallery />
         </section>
         <section aria-label="Inteligencia Artificial">
           <AIFeatures />

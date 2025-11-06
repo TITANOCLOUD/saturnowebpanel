@@ -82,12 +82,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/local-favicon.ico", sizes: "any" },
-      { url: "/local-favicon-16x16.ico", sizes: "16x16", type: "image/x-icon" },
-      { url: "/local-favicon-32x32.ico", sizes: "32x32", type: "image/x-icon" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.ico", sizes: "16x16", type: "image/x-icon" },
+      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
     ],
-    shortcut: "/local-favicon.ico",
-    apple: "/local-favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
   openGraph: {
     type: "website",
