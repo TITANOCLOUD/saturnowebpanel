@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { LanguageProvider } from "@/lib/i18n/language-context"
 import "./globals.css"
 
 const _geist = Geist({ subsets: ["latin"] })
@@ -81,13 +82,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.ico", sizes: "16x16", type: "image/x-icon" },
-      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
-    ],
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: "/favicon.ico",
   },
   openGraph: {
     type: "website",
@@ -265,7 +260,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`font-sans antialiased`}>
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
         <Analytics />
       </body>
     </html>

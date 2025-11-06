@@ -5,6 +5,8 @@ import { Server, Zap, Shield, Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import { useLanguage } from "@/lib/i18n/language-context"
+import { LanguageSwitcher } from "@/components/language-switcher"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -18,6 +20,7 @@ import { MultiCloudGallery } from "@/components/multi-cloud-gallery"
 export function Hero() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     let ticking = false
@@ -60,7 +63,7 @@ export function Hero() {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-foreground font-medium bg-transparent hover:bg-accent">
-                    Características
+                    {t("nav.features")}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4 bg-background">
@@ -70,9 +73,9 @@ export function Hero() {
                             href="/#caracteristicas"
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
-                            <div className="text-sm font-medium leading-none">Panel Unificado</div>
+                            <div className="text-sm font-medium leading-none">{t("nav.unifiedPanel")}</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Gestiona todas tus plataformas desde un solo lugar
+                              {t("nav.unifiedPanelDescription")}
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -83,9 +86,9 @@ export function Hero() {
                             href="/#caracteristicas"
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
-                            <div className="text-sm font-medium leading-none">Escalabilidad Infinita</div>
+                            <div className="text-sm font-medium leading-none">{t("nav.infiniteScalability")}</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Crece sin límites con infraestructura cloud profesional
+                              {t("nav.infiniteScalabilityDescription")}
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -96,9 +99,9 @@ export function Hero() {
                             href="/seguridad"
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
-                            <div className="text-sm font-medium leading-none">Seguridad Avanzada</div>
+                            <div className="text-sm font-medium leading-none">{t("nav.advancedSecurity")}</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Kernel TG con protección de nivel empresarial
+                              {t("nav.advancedSecurityDescription")}
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -109,9 +112,9 @@ export function Hero() {
                             href="/caracteristicas-tecnicas"
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
-                            <div className="text-sm font-medium leading-none">Características Técnicas</div>
+                            <div className="text-sm font-medium leading-none">{t("nav.technicalFeatures")}</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Arquitectura Zero Trust y IA dual
+                              {t("nav.technicalFeaturesDescription")}
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -122,7 +125,7 @@ export function Hero() {
 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-foreground font-medium bg-transparent hover:bg-accent">
-                    Integraciones
+                    {t("nav.integrations")}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[500px] grid-cols-2 gap-3 p-4 bg-background">
@@ -134,7 +137,7 @@ export function Hero() {
                           >
                             <div className="text-sm font-medium leading-none">Proxmox</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Virtualización completa y gestión de contenedores
+                              {t("nav.proxmoxDescription")}
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -147,7 +150,7 @@ export function Hero() {
                           >
                             <div className="text-sm font-medium leading-none">OpenStack</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Infraestructura cloud de nivel empresarial
+                              {t("nav.openstackDescription")}
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -160,7 +163,7 @@ export function Hero() {
                           >
                             <div className="text-sm font-medium leading-none">Acronis</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Backup y recuperación ante desastres
+                              {t("nav.acronisDescription")}
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -173,7 +176,7 @@ export function Hero() {
                           >
                             <div className="text-sm font-medium leading-none">OVH</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Servidores dedicados y cloud público
+                              {t("nav.ovhDescription")}
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -186,7 +189,7 @@ export function Hero() {
                           >
                             <div className="text-sm font-medium leading-none">Cloudflare</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              CDN, WAF y Zero Trust Access
+                              {t("nav.cloudflareDescription")}
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -197,9 +200,9 @@ export function Hero() {
                             href="/integraciones/azure"
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
-                            <div className="text-sm font-medium leading-none">Microsoft Azure</div>
+                            <div className="text-sm font-medium leading-none">{t("nav.azure")}</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Cloud Services y Virtual Network
+                              {t("nav.azureDescription")}
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -210,8 +213,10 @@ export function Hero() {
                             href="/integraciones/aws"
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
-                            <div className="text-sm font-medium leading-none">Amazon AWS</div>
-                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">EC2, S3 y Route53</p>
+                            <div className="text-sm font-medium leading-none">{t("nav.aws")}</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              {t("nav.awsDescription")}
+                            </p>
                           </Link>
                         </NavigationMenuLink>
                       </li>
@@ -221,7 +226,7 @@ export function Hero() {
 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-foreground font-medium bg-transparent hover:bg-accent">
-                    IA & Automatización
+                    {t("nav.iaAndAutomation")}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4 bg-background">
@@ -231,9 +236,9 @@ export function Hero() {
                             href="/ia-automatizacion/optimizacion-inteligente"
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
-                            <div className="text-sm font-medium leading-none">Optimización Inteligente</div>
+                            <div className="text-sm font-medium leading-none">{t("nav.intelligentOptimization")}</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              IA que optimiza recursos y reduce costos automáticamente
+                              {t("nav.intelligentOptimizationDescription")}
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -244,9 +249,9 @@ export function Hero() {
                             href="/ia-automatizacion/prediccion-fallos"
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
-                            <div className="text-sm font-medium leading-none">Predicción de Fallos</div>
+                            <div className="text-sm font-medium leading-none">{t("nav.failurePrediction")}</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Detecta problemas antes de que ocurran
+                              {t("nav.failurePredictionDescription")}
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -257,9 +262,9 @@ export function Hero() {
                             href="/ia-automatizacion/automatizacion-total"
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
-                            <div className="text-sm font-medium leading-none">Automatización Total</div>
+                            <div className="text-sm font-medium leading-none">{t("nav.totalAutomation")}</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Workflows inteligentes que se adaptan a tu negocio
+                              {t("nav.totalAutomationDescription")}
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -274,7 +279,7 @@ export function Hero() {
                       href="/#ventajas"
                       className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                     >
-                      Ventajas
+                      {t("nav.advantages")}
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
@@ -285,7 +290,7 @@ export function Hero() {
                       href="/documentacion"
                       className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                     >
-                      Documentación
+                      {t("nav.documentation")}
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
@@ -296,20 +301,23 @@ export function Hero() {
                       href="/nosotros"
                       className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                     >
-                      Nosotros
+                      {t("nav.aboutUs")}
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
 
-            <Button
-              variant="outline"
-              className="hidden lg:flex bg-transparent text-foreground border-foreground/20 hover:bg-accent hover:text-accent-foreground"
-              asChild
-            >
-              <Link href="/#contacto">Contacto</Link>
-            </Button>
+            <div className="hidden lg:flex items-center gap-2">
+              <LanguageSwitcher />
+              <Button
+                variant="outline"
+                className="bg-transparent text-foreground border-foreground/20 hover:bg-accent hover:text-accent-foreground"
+                asChild
+              >
+                <Link href="/#contacto">{t("nav.contact")}</Link>
+              </Button>
+            </div>
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -322,40 +330,44 @@ export function Hero() {
 
           {isMobileMenuOpen && (
             <div className="lg:hidden mt-4 pb-4 space-y-4 animate-in slide-in-from-top-2">
+              <div className="flex justify-center pb-2 border-b border-border">
+                <LanguageSwitcher />
+              </div>
+
               <div className="space-y-2">
-                <div className="font-semibold text-sm px-2 py-1">Características</div>
+                <div className="font-semibold text-sm px-2 py-1">{t("nav.features")}</div>
                 <Link
                   href="/#caracteristicas"
                   className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Panel Unificado
+                  {t("nav.unifiedPanel")}
                 </Link>
                 <Link
                   href="/#caracteristicas"
                   className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Escalabilidad Infinita
+                  {t("nav.infiniteScalability")}
                 </Link>
                 <Link
                   href="/seguridad"
                   className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Seguridad Avanzada
+                  {t("nav.advancedSecurity")}
                 </Link>
                 <Link
                   href="/caracteristicas-tecnicas"
                   className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Características Técnicas
+                  {t("nav.technicalFeatures")}
                 </Link>
               </div>
 
               <div className="space-y-2 border-t border-border pt-4">
-                <div className="font-semibold text-sm px-2 py-1">Integraciones</div>
+                <div className="font-semibold text-sm px-2 py-1">{t("nav.integrations")}</div>
                 <Link
                   href="/integraciones/proxmox"
                   className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
@@ -396,39 +408,39 @@ export function Hero() {
                   className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Microsoft Azure
+                  {t("nav.azure")}
                 </Link>
                 <Link
                   href="/integraciones/aws"
                   className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Amazon AWS
+                  {t("nav.aws")}
                 </Link>
               </div>
 
               <div className="space-y-2 border-t border-border pt-4">
-                <div className="font-semibold text-sm px-2 py-1">IA & Automatización</div>
+                <div className="font-semibold text-sm px-2 py-1">{t("nav.iaAndAutomation")}</div>
                 <Link
                   href="/ia-automatizacion/optimizacion-inteligente"
                   className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Optimización Inteligente
+                  {t("nav.intelligentOptimization")}
                 </Link>
                 <Link
                   href="/ia-automatizacion/prediccion-fallos"
                   className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Predicción de Fallos
+                  {t("nav.failurePrediction")}
                 </Link>
                 <Link
                   href="/ia-automatizacion/automatizacion-total"
                   className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Automatización Total
+                  {t("nav.totalAutomation")}
                 </Link>
               </div>
 
@@ -438,7 +450,7 @@ export function Hero() {
                   className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Ventajas
+                  {t("nav.advantages")}
                 </Link>
               </div>
 
@@ -448,14 +460,14 @@ export function Hero() {
                   className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Documentación
+                  {t("nav.documentation")}
                 </Link>
                 <Link
                   href="/nosotros"
                   className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Nosotros
+                  {t("nav.aboutUs")}
                 </Link>
               </div>
 
@@ -466,7 +478,7 @@ export function Hero() {
                   asChild
                 >
                   <Link href="/#contacto" onClick={() => setIsMobileMenuOpen(false)}>
-                    Contacto
+                    {t("nav.contact")}
                   </Link>
                 </Button>
               </div>
@@ -482,36 +494,35 @@ export function Hero() {
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/10 px-4 py-2 text-sm text-primary">
               <Zap className="h-4 w-4" />
-              <span className="font-medium">Tecnología de Última Generación</span>
+              <span className="font-medium">{t("hero.badge")}</span>
             </div>
 
             <h1 className="text-5xl font-bold tracking-tight text-balance md:text-6xl lg:text-7xl">
-              Transforma tu empresa en un <span className="text-primary">Centro de Datos Cloud</span>
+              {t("hero.title")} <span className="text-primary">{t("hero.titleHighlight")}</span>
             </h1>
 
             <p className="text-xl text-muted-foreground text-pretty leading-relaxed">
-              Saturno es el panel de control definitivo que integra{" "}
-              <strong className="text-foreground">OpenStack, Proxmox, Acronis y OVH</strong> para convertir cualquier
-              empresa en una infraestructura cloud profesional. Gestión avanzada, escalabilidad infinita.
+              {t("hero.description")} <strong className="text-foreground">{t("hero.tech")}</strong>{" "}
+              {t("hero.description2")}
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row">
               <Button size="lg" className="text-lg font-semibold">
-                Comenzar Ahora
+                {t("hero.startNow")}
               </Button>
               <Button size="lg" variant="outline" className="text-lg bg-transparent">
-                Ver Demo en Vivo
+                {t("hero.liveDemo")}
               </Button>
             </div>
 
             <div className="flex items-center gap-8 pt-4">
               <div className="flex items-center gap-2">
                 <Shield className="h-5 w-5 text-primary" />
-                <span className="text-sm text-muted-foreground">99.9% Uptime</span>
+                <span className="text-sm text-muted-foreground">99.9% {t("hero.uptime")}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Server className="h-5 w-5 text-primary" />
-                <span className="text-sm text-muted-foreground">Soporte 24/7</span>
+                <span className="text-sm text-muted-foreground">{t("hero.support")} 24/7</span>
               </div>
             </div>
           </div>

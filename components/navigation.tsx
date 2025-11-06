@@ -13,10 +13,13 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
+import { useLanguage } from "@/lib/i18n/language-context"
+import { LanguageSwitcher } from "@/components/language-switcher"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     let ticking = false
@@ -56,7 +59,7 @@ export function Navigation() {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="text-foreground font-medium bg-transparent hover:bg-accent">
-                  Características
+                  {t("nav.features")}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 bg-background">
@@ -66,9 +69,9 @@ export function Navigation() {
                           href="/#caracteristicas"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
-                          <div className="text-sm font-medium leading-none">Panel Unificado</div>
+                          <div className="text-sm font-medium leading-none">{t("nav.unifiedPanel")}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Gestiona todas tus plataformas desde un solo lugar
+                            {t("nav.manageAllPlatforms")}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -79,9 +82,9 @@ export function Navigation() {
                           href="/#caracteristicas"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
-                          <div className="text-sm font-medium leading-none">Escalabilidad Infinita</div>
+                          <div className="text-sm font-medium leading-none">{t("nav.infiniteScalability")}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Crece sin límites con infraestructura cloud profesional
+                            {t("nav.growWithoutLimits")}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -92,9 +95,9 @@ export function Navigation() {
                           href="/seguridad"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
-                          <div className="text-sm font-medium leading-none">Seguridad Avanzada</div>
+                          <div className="text-sm font-medium leading-none">{t("nav.advancedSecurity")}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Kernel TG con protección de nivel empresarial
+                            {t("nav.businessLevelProtection")}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -105,9 +108,9 @@ export function Navigation() {
                           href="/caracteristicas-tecnicas"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
-                          <div className="text-sm font-medium leading-none">Características Técnicas</div>
+                          <div className="text-sm font-medium leading-none">{t("nav.technicalFeatures")}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Arquitectura Zero Trust y IA dual
+                            {t("nav.zeroTrustArchitecture")}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -118,7 +121,7 @@ export function Navigation() {
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="text-foreground font-medium bg-transparent hover:bg-accent">
-                  Integraciones
+                  {t("nav.integrations")}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[500px] grid-cols-2 gap-3 p-4 bg-background">
@@ -130,7 +133,7 @@ export function Navigation() {
                         >
                           <div className="text-sm font-medium leading-none">Proxmox</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Virtualización completa y gestión de contenedores
+                            {t("nav.fullVirtualization")}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -143,7 +146,7 @@ export function Navigation() {
                         >
                           <div className="text-sm font-medium leading-none">OpenStack</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Infraestructura cloud de nivel empresarial
+                            {t("nav.enterpriseLevelCloud")}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -156,7 +159,7 @@ export function Navigation() {
                         >
                           <div className="text-sm font-medium leading-none">Acronis</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Backup y recuperación ante desastres
+                            {t("nav.backupAndDisasterRecovery")}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -169,7 +172,7 @@ export function Navigation() {
                         >
                           <div className="text-sm font-medium leading-none">OVH</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Servidores dedicados y cloud público
+                            {t("nav.dedicatedServers")}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -181,9 +184,7 @@ export function Navigation() {
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">Cloudflare</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            CDN, WAF y Zero Trust Access
-                          </p>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{t("nav.cdnWaf")}</p>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -193,9 +194,9 @@ export function Navigation() {
                           href="/integraciones/azure"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
-                          <div className="text-sm font-medium leading-none">Microsoft Azure</div>
+                          <div className="text-sm font-medium leading-none">{t("nav.microsoftAzure")}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Cloud Services y Virtual Network
+                            {t("nav.cloudServices")}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -206,8 +207,10 @@ export function Navigation() {
                           href="/integraciones/aws"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
-                          <div className="text-sm font-medium leading-none">Amazon AWS</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">EC2, S3 y Route53</p>
+                          <div className="text-sm font-medium leading-none">{t("nav.amazonAws")}</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            {t("nav.ec2S3Route53")}
+                          </p>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -217,7 +220,7 @@ export function Navigation() {
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="text-foreground font-medium bg-transparent hover:bg-accent">
-                  IA & Automatización
+                  {t("nav.ai")}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 bg-background">
@@ -227,9 +230,9 @@ export function Navigation() {
                           href="/ia-automatizacion/optimizacion-inteligente"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
-                          <div className="text-sm font-medium leading-none">Optimización Inteligente</div>
+                          <div className="text-sm font-medium leading-none">{t("nav.intelligentOptimization")}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            IA que optimiza recursos y reduce costos automáticamente
+                            {t("nav.aiAutomaticallyOptimizes")}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -240,9 +243,9 @@ export function Navigation() {
                           href="/ia-automatizacion/prediccion-fallos"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
-                          <div className="text-sm font-medium leading-none">Predicción de Fallos</div>
+                          <div className="text-sm font-medium leading-none">{t("nav.failurePrediction")}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Detecta problemas antes de que ocurran
+                            {t("nav.detectProblems")}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -253,9 +256,9 @@ export function Navigation() {
                           href="/ia-automatizacion/automatizacion-total"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
-                          <div className="text-sm font-medium leading-none">Automatización Total</div>
+                          <div className="text-sm font-medium leading-none">{t("nav.totalAutomation")}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Workflows inteligentes que se adaptan a tu negocio
+                            {t("nav.intelligentWorkflows")}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -270,7 +273,7 @@ export function Navigation() {
                     href="/#ventajas"
                     className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                   >
-                    Ventajas
+                    {t("nav.advantages")}
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -281,7 +284,7 @@ export function Navigation() {
                     href="/documentacion"
                     className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                   >
-                    Documentación
+                    {t("nav.documentation")}
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -292,20 +295,23 @@ export function Navigation() {
                     href="/nosotros"
                     className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                   >
-                    Nosotros
+                    {t("nav.about")}
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
-          <Button
-            variant="outline"
-            className="hidden lg:flex bg-transparent text-foreground border-foreground/20 hover:bg-accent hover:text-accent-foreground"
-            asChild
-          >
-            <Link href="/#contacto">Contacto</Link>
-          </Button>
+          <div className="hidden lg:flex items-center gap-2">
+            <LanguageSwitcher />
+            <Button
+              variant="outline"
+              className="bg-transparent text-foreground border-foreground/20 hover:bg-accent hover:text-accent-foreground"
+              asChild
+            >
+              <Link href="/#contacto">{t("nav.contact")}</Link>
+            </Button>
+          </div>
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -318,40 +324,44 @@ export function Navigation() {
 
         {isMobileMenuOpen && (
           <div className="lg:hidden mt-4 pb-4 space-y-4 animate-in slide-in-from-top-2">
+            <div className="flex justify-center pb-2 border-b border-border">
+              <LanguageSwitcher />
+            </div>
+
             <div className="space-y-2">
-              <div className="font-semibold text-sm px-2 py-1">Características</div>
+              <div className="font-semibold text-sm px-2 py-1">{t("nav.features")}</div>
               <Link
                 href="/#caracteristicas"
                 className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Panel Unificado
+                {t("nav.unifiedPanel")}
               </Link>
               <Link
                 href="/#caracteristicas"
                 className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Escalabilidad Infinita
+                {t("nav.infiniteScalability")}
               </Link>
               <Link
                 href="/seguridad"
                 className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Seguridad Avanzada
+                {t("nav.advancedSecurity")}
               </Link>
               <Link
                 href="/caracteristicas-tecnicas"
                 className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Características Técnicas
+                {t("nav.technicalFeatures")}
               </Link>
             </div>
 
             <div className="space-y-2 border-t border-border pt-4">
-              <div className="font-semibold text-sm px-2 py-1">Integraciones</div>
+              <div className="font-semibold text-sm px-2 py-1">{t("nav.integrations")}</div>
               <Link
                 href="/integraciones/proxmox"
                 className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
@@ -392,39 +402,39 @@ export function Navigation() {
                 className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Microsoft Azure
+                {t("nav.microsoftAzure")}
               </Link>
               <Link
                 href="/integraciones/aws"
                 className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Amazon AWS
+                {t("nav.amazonAws")}
               </Link>
             </div>
 
             <div className="space-y-2 border-t border-border pt-4">
-              <div className="font-semibold text-sm px-2 py-1">IA & Automatización</div>
+              <div className="font-semibold text-sm px-2 py-1">{t("nav.ai")}</div>
               <Link
                 href="/ia-automatizacion/optimizacion-inteligente"
                 className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Optimización Inteligente
+                {t("nav.intelligentOptimization")}
               </Link>
               <Link
                 href="/ia-automatizacion/prediccion-fallos"
                 className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Predicción de Fallos
+                {t("nav.failurePrediction")}
               </Link>
               <Link
                 href="/ia-automatizacion/automatizacion-total"
                 className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Automatización Total
+                {t("nav.totalAutomation")}
               </Link>
             </div>
 
@@ -434,7 +444,7 @@ export function Navigation() {
                 className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Ventajas
+                {t("nav.advantages")}
               </Link>
             </div>
 
@@ -444,14 +454,14 @@ export function Navigation() {
                 className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Documentación
+                {t("nav.documentation")}
               </Link>
               <Link
                 href="/nosotros"
                 className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Nosotros
+                {t("nav.about")}
               </Link>
             </div>
 
@@ -462,7 +472,7 @@ export function Navigation() {
                 asChild
               >
                 <Link href="/#contacto" onClick={() => setIsMobileMenuOpen(false)}>
-                  Contacto
+                  {t("nav.contact")}
                 </Link>
               </Button>
             </div>

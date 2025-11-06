@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Server, Cloud, Database, Shield, Zap, Globe, Lock, Network } from "lucide-react"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 interface Provider {
   name: string
@@ -101,6 +102,7 @@ const providers: Provider[] = [
 export function MultiCloudGallery() {
   const [currentSet, setCurrentSet] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
+  const { t } = useLanguage()
 
   // Show 4 providers at a time
   const providersPerPage = 4
@@ -140,10 +142,9 @@ export function MultiCloudGallery() {
   return (
     <div className="relative">
       <div className="relative rounded-2xl border border-primary/30 bg-card/50 p-8 backdrop-blur-sm">
-        {/* Header */}
         <div className="mb-6 flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-semibold">Multi-Cloud Infrastructure</h3>
+            <h3 className="text-lg font-semibold">{t("multiCloud.title")}</h3>
             <p className="text-sm text-muted-foreground">{providers.length} proveedores conectados</p>
           </div>
           <div className="flex gap-1">
@@ -189,15 +190,15 @@ export function MultiCloudGallery() {
         <div className="mt-6 grid grid-cols-3 gap-4 border-t border-border pt-4">
           <div className="text-center">
             <div className="text-2xl font-bold text-primary">{cloudCount}</div>
-            <div className="text-xs text-muted-foreground">Clouds</div>
+            <div className="text-xs text-muted-foreground">{t("multiCloud.clouds")}</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-cyan-500">{securityCount}</div>
-            <div className="text-xs text-muted-foreground">Ciberprotección</div>
+            <div className="text-xs text-muted-foreground">{t("multiCloud.cyberProtection")}</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-orange-500">{virtualizationCount}</div>
-            <div className="text-xs text-muted-foreground">Virtualización</div>
+            <div className="text-xs text-muted-foreground">{t("multiCloud.virtualization")}</div>
           </div>
         </div>
       </div>
